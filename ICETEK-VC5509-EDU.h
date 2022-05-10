@@ -1,3 +1,6 @@
+#ifndef __VC5509_H
+#define __VC5509_H
+
 #include "scancode.h"
 
 // emif  --------------------------------------------------------
@@ -99,7 +102,7 @@ void LCDCMD(unsigned char dbCommand);	// ��Һ����ʾ������
 void LCDWriteLeft(unsigned char dbData);	// дҺ����ʾ�������
 void LCDCLS();							// ���Һ����ʾ����ʾ
 void TurnOnLCD();						// ��Һ����ʾ��
-
+extern unsigned int ncode;
 void CloseCTR()
 {
     CTRGR=0; 				 
@@ -158,6 +161,8 @@ void InitCTR()
 	LCDCMD(LCDCMDTURNOFF);	
 	dbClearKey=CTRCLKEY;
 	LBDS=0;
+    CTRLR=0xc8;
+    ncode=CTRCLKEY;
 }
 
 void Delay(unsigned int nDelay)
@@ -235,6 +240,10 @@ void LCDCLS()
 			LCDWriteRight(0);
 	}
 }
+
+#endif
+
+
 
 
 

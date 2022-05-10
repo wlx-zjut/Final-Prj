@@ -1,5 +1,3 @@
-//  ����ʱ��Ƶ���J5����Դ��J7����������
-#include "5509.h"
 #include "util.h"
 #include "func.h"
 #include <dsplib.h>
@@ -7,6 +5,8 @@
 #include <stdlib.h>
 #include <math.h>
 #include <stdio.h>
+//#include "ICETEK-VC5509-EDU.h"     //ICETEK-VC5509A-S60实验箱扩展接口和控制模块
+#include <key.h>
 void wait( unsigned int cycles );
 void EnableAPLL( );
 extern short sample[256];
@@ -18,9 +18,12 @@ void main()
     SDRAM_init();
     EnableAPLL();
     PLL_Init(40);
+    INTR_init();
+    InitCTR();
     AIC23_Init();
     AIC23_Mixer_Init();
     while(1){
+        AIC23_Mixer();
         AIC23_Mixer();
         rfft(sample,256,SCALE);
         for(i=0;i<128;i++){

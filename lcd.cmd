@@ -17,7 +17,7 @@ SECTIONS
     .trcinit: {} > DARAM
     .gblinit: {} > DARAM
      frt:     {} > DARAM
-
+	.vectors: {} > VECT
     .cinit:   {} > DARAM
     .pinit:   {} > DARAM
     .sysinit: {} > DARAM
