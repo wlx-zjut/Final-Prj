@@ -10,9 +10,11 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
+"./ICETEK-VC5509-EDU.obj" \
 "./aic23.obj" \
 "./i2c.obj" \
 "./key.obj" \
+"./lcddisplay.obj" \
 "./main.obj" \
 "./sdram_init.obj" \
 "./util.obj" \
@@ -194,8 +196,8 @@ Final\ Prj.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "aic23.obj" "i2c.obj" "key.obj" "main.obj" "sdram_init.obj" "util.obj" "vectors.obj" "55x_src\abias.obj" "55x_src\add.obj" "55x_src\araw.obj" "55x_src\arct2.obj" "55x_src\atan16.obj" "55x_src\aubias.obj" "55x_src\bexp.obj" "55x_src\cbias.obj" "55x_src\cbrev.obj" "55x_src\cbrev32.obj" "55x_src\cfft32_noscale.obj" "55x_src\cfft32_scale.obj" "55x_src\cfft_noscale.obj" "55x_src\cfft_scale.obj" "55x_src\ldiv16.obj" "55x_src\log_10.obj" "55x_src\log_2.obj" "55x_src\logn.obj" "55x_src\sqrtv.obj" "55x_src\sub.obj" "55x_src\unpack.obj" "55x_src\unpack32.obj" "55x_src\unpacki.obj" "55x_src\unpacki32.obj" "twiddle\twiddle.obj" 
-	-$(RM) "aic23.d" "i2c.d" "key.d" "main.d" "sdram_init.d" "util.d" 
+	-$(RM) "ICETEK-VC5509-EDU.obj" "aic23.obj" "i2c.obj" "key.obj" "lcddisplay.obj" "main.obj" "sdram_init.obj" "util.obj" "vectors.obj" "55x_src\abias.obj" "55x_src\add.obj" "55x_src\araw.obj" "55x_src\arct2.obj" "55x_src\atan16.obj" "55x_src\aubias.obj" "55x_src\bexp.obj" "55x_src\cbias.obj" "55x_src\cbrev.obj" "55x_src\cbrev32.obj" "55x_src\cfft32_noscale.obj" "55x_src\cfft32_scale.obj" "55x_src\cfft_noscale.obj" "55x_src\cfft_scale.obj" "55x_src\ldiv16.obj" "55x_src\log_10.obj" "55x_src\log_2.obj" "55x_src\logn.obj" "55x_src\sqrtv.obj" "55x_src\sub.obj" "55x_src\unpack.obj" "55x_src\unpack32.obj" "55x_src\unpacki.obj" "55x_src\unpacki32.obj" "twiddle\twiddle.obj" 
+	-$(RM) "ICETEK-VC5509-EDU.d" "aic23.d" "i2c.d" "key.d" "lcddisplay.d" "main.d" "sdram_init.d" "util.d" 
 	-$(RM) "vectors.d" "55x_src\abias.d" "55x_src\add.d" "55x_src\araw.d" "55x_src\arct2.d" "55x_src\atan16.d" "55x_src\aubias.d" "55x_src\bexp.d" "55x_src\cbias.d" "55x_src\cbrev.d" "55x_src\cbrev32.d" "55x_src\cfft32_noscale.d" "55x_src\cfft32_scale.d" "55x_src\cfft_noscale.d" "55x_src\cfft_scale.d" "55x_src\ldiv16.d" "55x_src\log_10.d" "55x_src\log_2.d" "55x_src\logn.d" "55x_src\sqrtv.d" "55x_src\sub.d" "55x_src\unpack.d" "55x_src\unpack32.d" "55x_src\unpacki.d" "55x_src\unpacki32.d" "twiddle\twiddle.d" 
 	-@echo 'Finished clean'
 	-@echo ' '

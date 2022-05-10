@@ -1,3 +1,4 @@
+#include "c5509.h"
 #include "util.h"
 #include "func.h"
 #include <dsplib.h>
@@ -5,7 +6,8 @@
 #include <stdlib.h>
 #include <math.h>
 #include <stdio.h>
-//#include "ICETEK-VC5509-EDU.h"     //ICETEK-VC5509A-S60实验箱扩展接口和控制模块
+#include <lcddisplay.h>
+#include "ICETEK-VC5509-EDU.h"     //ICETEK-VC5509A-S60实验箱扩展接口和控制模块
 #include <key.h>
 void wait( unsigned int cycles );
 void EnableAPLL( );
@@ -22,6 +24,11 @@ void main()
     InitCTR();
     AIC23_Init();
     AIC23_Mixer_Init();
+    lcdInit();
+    setpage(2);
+    setcolumn(0);
+    printleft(0xFF);
+
     while(1){
         AIC23_Mixer();
         AIC23_Mixer();
