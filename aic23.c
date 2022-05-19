@@ -149,7 +149,7 @@ void AIC23_Mixer_Init(){
           far_poke(lpWork++,0);
       lpWork=lpAudio;
 }
-
+int b,z;
 void AIC23_Mixer()
 {
     while (!ReadMask(pMCBSP0 -> spcr2, SPCR2_XRDY));
@@ -160,6 +160,14 @@ void AIC23_Mixer()
         nWork=Read(pMCBSP0->drr1);  // 这里假设两个声道相同，所以都输入到nWork，其中一个声道是被覆盖的。
                                     // 如果左右声道不同，则要分别输入到两个数组，比如nWork_L和nWork_R
         far_poke(lpWork++,nWork);   // 读取的左右声道数据保存到缓冲区lpWork
+
+        b=(int)(20000*sin(3.1415926*z/180));
+        Write(pMCBSP0->dxr2,b); // �����ݵ�McBSP0�����������AIC23���
+        Write(pMCBSP0->dxr1,b);// ��������������ͬ������nWork�����
+        z++;
+        if(z==360) z=0;
+
+
         Write(pMCBSP0->dxr2,nWork); // 送数据到McBSP0，声音输出由AIC23完成
         Write(pMCBSP0->dxr1,nWork); // 这里两个声道相同，都从nWork输出。
         sample[luWork]=nWork;

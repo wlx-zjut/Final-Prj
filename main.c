@@ -17,18 +17,22 @@ long final[128];
 int i;
 void main()
 {
+
+
+    PLL_Init(80);
     SDRAM_init();
-    EnableAPLL();
-    PLL_Init(40);
     INTR_init();
     InitCTR();
     AIC23_Init();
     AIC23_Mixer_Init();
     lcdInit();
-    setpage(2);
-    setcolumn(0);
-    printleft(0xFF);
-
+    LCDCLS();
+    Show_123();
+    Show_246();
+    Show_369();
+    lcdInit();
+    LCDCLS();
+    while(1);
     while(1){
         AIC23_Mixer();
         AIC23_Mixer();
@@ -38,6 +42,11 @@ void main()
         }
     }
 }
+
+
+
+
+//=========================================================================
 void wait( unsigned int cycles )
 {
     int i;
